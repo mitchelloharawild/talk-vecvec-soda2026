@@ -47,6 +47,9 @@ spatial vectors a dataset ready for spatio-temporal analysis.
 
 #### Structure
 
+0.  Intention - Why am I presenting? Discuss ideas in common interests
+    (permaculture, open source hardware for iot, open source statistical
+    software, …)
 1.  Vectors in statistical programming languages.
 2.  Semantic variables vectors (time, distribution, spatial, graph, …).
 3.  Basics of distributional vectors (single distribution types).
