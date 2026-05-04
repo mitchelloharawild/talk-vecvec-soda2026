@@ -25,16 +25,17 @@ These semantic vectors combine naturally in tidy rectangular data to facilitate 
 
 #### Structure
 
-0. Intention - Why am I presenting? Discuss ideas in common interests 
+1. Intention - Why am I presenting? Discuss ideas in common interests 
    (permaculture, open source hardware for iot, open source statistical software, ...)
-1. Vectors in statistical programming languages.
-2. Semantic variables vectors (time, distribution, spatial, graph, ...).
-3. Basics of distributional vectors (single distribution types).
-4. Mixed type vectors of vectors. A brief showcase of the vecvec package.
-5. Operations on semantic vectors with the distributional package.
-6. Other semantic vectors (mixtime, graphvec, sf).
-7. Combining semantic variables (distributional+mixtime == forecasts).
-8. Interoperability between semantic vectors (ivs, temporal uncertainty, ...).
+2. Vectors in statistical programming languages.
+3. Semantic variables vectors (time, distribution, spatial, graph, ...).
+4. Complete (distributional), wip (mixtime), future (graphvec).
+5. Basics of distributional vectors (single distribution types).
+6. Mixed type vectors of vectors. A brief showcase of the vecvec package.
+7. Operations on semantic vectors with the distributional package.
+8. Other semantic vectors (mixtime, graphvec, sf).
+9. Combining semantic variables (distributional+mixtime == forecasts).
+10. Interoperability between semantic vectors (ivs, temporal uncertainty, ...).
 
 ### Format
 
