@@ -47,10 +47,10 @@ spatial vectors a dataset ready for spatio-temporal analysis.
 
 #### Structure
 
-1.  Intention - Why am I presenting? Discuss ideas in common interests
+1.  Intention - Why am I presenting? Discuss ideas in common interests  
     (permaculture, open source hardware for iot, open source statistical
     software, …)
-2.  Vectors in statistical programming languages.
+2.  Time series forecasting domain - time, probability, graph
 3.  Semantic variables vectors (time, distribution, spatial, graph, …).
 4.  Complete (distributional), wip (mixtime), future (graphvec).
 5.  Basics of distributional vectors (single distribution types).
