@@ -59,7 +59,137 @@ Mitchell O'Hara-Wild, Monash University
 :::
 :::
 
+## {.center}
+
+[[(Meta)]{.fragment} Motivation]{style="font-size: 5em;"}
+
 ## {}
+
+<!-- Hobby Montage -->
+
+
+::: columns
+::: {.column width="60%"}
+<!-- 
+**Permaculture**
+
+* Chickens
+* Compost
+* Garden
+* Bees
+* Mushrooms
+
+**Open-source**
+
+* Hardware
+* Software
+
+**Lifestyle**
+
+* Bicycling
+* Hiking
+* Games 
+-->
+
+![](media/interests.svg){.image-left}
+
+:::
+
+
+::: {.column width="40%"}
+
+::: {.r-stack}
+![](media/hobby/chicks.jpeg){.fragment}
+
+![](media/hobby/hens.jpeg){.fragment}
+
+![](media/hobby/eggs.jpeg){.fragment}
+
+![](media/hobby/compost.jpeg){.fragment}
+
+![](media/hobby/pumpkin.jpeg){.fragment}
+
+![](media/hobby/beehives.jpg){.fragment}
+
+![](media/hobby/honey-frame.jpg){.fragment}
+
+```{=html}
+<video class="fragment" muted loop>
+  <source src="media/hobby/honey-extract.mp4" type="video/webm">
+</video>
+```
+
+```{=html}
+<video class="fragment" muted loop>
+  <source src="media/hobby/honey-filter.mp4" type="video/webm">
+</video>
+```
+
+```{=html}
+<video class="fragment" muted loop>
+  <source src="media/hobby/honey-bucket.mp4" type="video/webm">
+</video>
+```
+
+![](media/hobby/honey-jar.jpeg){.fragment}
+
+![](media/hobby/mush-bucket.jpeg){.fragment}
+
+![](media/hobby/mush-pink-oyster.jpeg){.fragment}
+
+![](media/hobby/mush-tent.jpeg){.fragment}
+
+![](media/hobby/mush-pcb.png){.fragment}
+
+![](media/hobby/oshw-dendrometer.png){.fragment}
+
+![](media/rpkgs.svg){.fragment}
+
+![](media/hobby/bike.jpeg){.fragment}
+
+![](media/hobby/hike-forest.jpg){.fragment}
+
+![](media/hobby/hike-view.jpg){.fragment}
+
+![](media/hobby/hike-milo.jpg){.fragment}
+
+![](media/hobby/game-wingspan.jpeg){.fragment}
+
+![](media/hobby/game-schafkopf.jpg){.fragment}
+:::
+
+:::
+:::
+
+## {.center}
+
+
+![](media/forecast-to-fable.svg)
+
+
+## {}
+
+::: {.r-stack}
+![](media/vectors-1.svg){.image-full}
+
+![](media/vectors-2.svg){.image-full .fragment}
+
+![](media/vectors-3.svg){.image-full .fragment}
+:::
+
+
+## {}
+
+::: {.r-stack}
+![](media/vectors-4.svg){.image-full}
+
+![](media/vectors-5.svg){.image-full .fragment}
+
+![](media/vectors-6.svg){.image-full .fragment}
+:::
+
+
+<!-- ## {}
 
 ::: columns
 
@@ -139,7 +269,7 @@ Other data types are built from them, such as:
 :::
 :::
 
-![](backgrounds/amjd-rdwan--MDJDYKQz6E-unsplash.jpg){.image-right}
+![](backgrounds/amjd-rdwan--MDJDYKQz6E-unsplash.jpg){.image-right} -->
 
 
 ## {}
@@ -147,7 +277,9 @@ Other data types are built from them, such as:
 ::: columns
 ::: {.column width="65%"}
 
-### Classed vectors encode *semantics*
+### Safer statistics with semantics
+
+::: {.fragment}
 
 Many data types have *intrinsic structure*, requiring special care in statistical analysis.
 
@@ -163,7 +295,7 @@ Many data types have *intrinsic structure*, requiring special care in statistica
 * :world_map: spatial: `{sp}`, `{sf}`
 :::
 
-
+:::
 :::
 :::
 
@@ -182,17 +314,38 @@ Statistical operations leverage their structure to prevent analysis that violate
 #| error: true
 #| echo: true
 Jan31 <- as.Date("2025-01-31")
-
 Jan31 + 1
+```
+
+::: {.fragment}
+```{r}
+#| error: true
+#| echo: true
 Jan31 * 2
+```
+:::
+::: {.fragment}
+```{r}
+#| error: true
+#| echo: true
 log(Jan31)
+```
+
+:::
+::: {.fragment}
+```{r}
+#| error: true
+#| echo: true
 Jan31 + lubridate::period(1, "months")
 ```
+:::
 
 :::
 :::
 
 ![](backgrounds/amjd-rdwan--MDJDYKQz6E-unsplash.jpg){.image-right}
+
+<!-- TODO: Meta vecvec is distributional, mixtime, and graphvec slide -->
 
 ## {}
 
@@ -329,7 +482,7 @@ qnorm(c(0.025, 0.975), mean = c(1,2), sd = c(3,4,5))
 ::: {.callout-important}
 ## R's model prediction output
 
-Worst of all is how distributions are obtained from models.
+Worst of all: obtaining distributions from models.
 :::
 
 ::: {.fragment .fade-up}
@@ -381,9 +534,6 @@ predict(fit, tail(palmerpenguins::penguins),
         se.fit = TRUE)
 ```
 
-[This gives more than just standard errors...]{.fragment .fade-in}
-
-[but we're still missing the shape of the distribution!]{.fragment .fade-in}
 :::
 :::
 :::
@@ -1142,16 +1292,16 @@ edge_vec(from = c(1L, 2L, 1L), to = c(2L, 3L, 3L), nodes = data.frame(id = 1:3, 
 ### Combining semantic vectors
 
 ::: {.incremental}
+* 🔮📅 Forecasting: 
+
+  `{mixtime}` + `{distributional}`
 * 🗺️📅 Spatio-temporal data: 
 
-  `{mixtime}` + `{sf}`
-* 🕸️📅 Graph-temporal data: 
-
-  `{graphvec}` + `{mixtime}`
+  `{sf}` + `{mixtime}`
 * 🕸️📊 Network modelling: 
 
   `{graphvec}` + `{distributional}`
-* 📊🗺️📅🕸️ 
+* 🔮🗺️📅🕸️ 
 
   Probabilistic-spatio-temporal-graph:
 
@@ -1302,10 +1452,14 @@ Combining [{ggtime}](https://pkg.mitchelloharawild.com/ggtime/) and [{ggdist}](h
 ::: {.callout-tip}
 ## Final remarks
 
-* Endless semantic combinations for stats and data viz.
-* Safe statistics respects data semantics.
-* Vectorised code 🤝 statistical analysis.
-* Analysis workflows are better with semantic vectors.
+::: incremental
+
+* 📊 Strict semantics supports safer statistics.
+* 📚 Better data (structures) makes for better models.
+* ⛰️ Let's go on a hike! Any suggestions?
+* 🃏 Board games next week? Schafkopf? 😁
+
+:::
 
 :::
 
