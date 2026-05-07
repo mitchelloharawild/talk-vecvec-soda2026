@@ -91,7 +91,29 @@ Mitchell O'Hara-Wild, Monash University
 * Games 
 -->
 
-![](media/interests.svg){.image-left}
+![](media/interests-1.svg){.image-left}
+
+![](media/interests-2.svg){.image-left .fragment fragment-index=1}
+
+![](media/interests-3.svg){.image-left .fragment fragment-index=4}
+
+![](media/interests-4.svg){.image-left .fragment fragment-index=5}
+
+![](media/interests-5.svg){.image-left .fragment fragment-index=6}
+
+![](media/interests-6.svg){.image-left .fragment fragment-index=12}
+
+![](media/interests-7.svg){.image-left .fragment fragment-index=15}
+
+![](media/interests-8.svg){.image-left .fragment fragment-index=17}
+
+![](media/interests-9.svg){.image-left .fragment fragment-index=18}
+
+![](media/interests-a.svg){.image-left .fragment fragment-index=19}
+
+![](media/interests-b.svg){.image-left .fragment fragment-index=22}
+
+![](media/interests-c.svg){.image-left .fragment fragment-index=24}
 
 :::
 
@@ -99,63 +121,65 @@ Mitchell O'Hara-Wild, Monash University
 ::: {.column width="40%"}
 
 ::: {.r-stack}
-![](media/hobby/chicks.jpeg){.fragment}
+![](media/hobby/me.jpg)
 
-![](media/hobby/hens.jpeg){.fragment}
+![](media/hobby/chicks.jpeg){.fragment fragment-index=1}
 
-![](media/hobby/eggs.jpeg){.fragment}
+![](media/hobby/hens.jpeg){.fragment fragment-index=2}
 
-![](media/hobby/compost.jpeg){.fragment}
+![](media/hobby/eggs.jpeg){.fragment fragment-index=3}
 
-![](media/hobby/pumpkin.jpeg){.fragment}
+![](media/hobby/compost.jpeg){.fragment fragment-index=4}
 
-![](media/hobby/beehives.jpg){.fragment}
+![](media/hobby/pumpkin.jpeg){.fragment fragment-index=5}
 
-![](media/hobby/honey-frame.jpg){.fragment}
+![](media/hobby/beehives.jpg){.fragment fragment-index=6}
+
+![](media/hobby/honey-frame.jpg){.fragment fragment-index=7}
 
 ```{=html}
-<video class="fragment" muted loop>
+<video class="fragment" data-fragment-index=8 muted loop>
   <source src="media/hobby/honey-extract.mp4" type="video/webm">
 </video>
 ```
 
 ```{=html}
-<video class="fragment" muted loop>
+<video class="fragment" data-fragment-index=9 muted loop>
   <source src="media/hobby/honey-filter.mp4" type="video/webm">
 </video>
 ```
 
 ```{=html}
-<video class="fragment" muted loop>
+<video class="fragment" data-fragment-index=10 muted loop>
   <source src="media/hobby/honey-bucket.mp4" type="video/webm">
 </video>
 ```
 
-![](media/hobby/honey-jar.jpeg){.fragment}
+![](media/hobby/honey-jar.jpeg){.fragment fragment-index=11}
 
-![](media/hobby/mush-bucket.jpeg){.fragment}
+![](media/hobby/mush-bucket.jpeg){.fragment fragment-index=12}
 
-![](media/hobby/mush-pink-oyster.jpeg){.fragment}
+![](media/hobby/mush-pink-oyster.jpeg){.fragment fragment-index=13}
 
-![](media/hobby/mush-tent.jpeg){.fragment}
+![](media/hobby/mush-tent.jpeg){.fragment fragment-index=14}
 
-![](media/hobby/mush-pcb.png){.fragment}
+![](media/hobby/mush-pcb.png){.fragment fragment-index=15}
 
-![](media/hobby/oshw-dendrometer.png){.fragment}
+![](media/hobby/oshw-dendrometer.png){.fragment fragment-index=16}
 
-![](media/rpkgs.svg){.fragment}
+![](media/rpkgs.svg){.fragment fragment-index=17}
 
-![](media/hobby/bike.jpeg){.fragment}
+![](media/hobby/bike.jpeg){.fragment fragment-index=18}
 
-![](media/hobby/hike-forest.jpg){.fragment}
+![](media/hobby/hike-forest.jpg){.fragment fragment-index=19}
 
-![](media/hobby/hike-view.jpg){.fragment}
+![](media/hobby/hike-view.jpg){.fragment fragment-index=20}
 
-![](media/hobby/hike-milo.jpg){.fragment}
+![](media/hobby/hike-milo.jpg){.fragment fragment-index=21}
 
-![](media/hobby/game-wingspan.jpeg){.fragment}
+![](media/hobby/game-wingspan.jpeg){.fragment fragment-index=22}
 
-![](media/hobby/game-schafkopf.jpg){.fragment}
+![](media/hobby/game-schafkopf.jpg){.fragment fragment-index=23}
 :::
 
 :::
@@ -546,6 +570,46 @@ predict(fit, tail(palmerpenguins::penguins),
 ::: columns
 
 ::: {.column width="60%"}
+### Unsafe Stats: R's distributions
+
+::: {.callout-caution}
+## Time to compute intervals!
+
+(as a naive first-year stats student)
+
+```{r}
+#| echo: true
+#| eval: false
+pred <- predict(fit, tail(palmerpenguins::penguins), se.fit = TRUE)
+sprintf(
+  "[%f, %f]95",
+  qnorm(0.025, mean = pred$fit, pred$se.fit),
+  qnorm(0.975, mean = pred$fit, pred$se.fit)
+)
+```
+
+```{r}
+pred <- predict(fit, tail(palmerpenguins::penguins), se.fit = TRUE)
+cat(sprintf(
+  "[%f, %f]95",
+  qnorm(0.025, mean = pred$fit, pred$se.fit),
+  qnorm(0.975, mean = pred$fit, pred$se.fit)
+), sep = "\n")
+```
+
+:::
+:::
+:::
+
+![](backgrounds/aditya-chinchure-hyN9aU9Tm-c-unsplash.jpg){.image-right}
+
+
+
+## {}
+
+::: columns
+
+::: {.column width="60%"}
 
 ### Unsafe Stats: R's distributions
 
@@ -567,8 +631,8 @@ sprintf(
 pred <- predict(fit, tail(palmerpenguins::penguins), se.fit = TRUE)
 cat(sprintf(
   "[%f, %f]95",
-  pred$fit + qt(0.025, df = pred$df) * sqrt(pred$se.fit^2),
-  pred$fit + qt(0.975, df = pred$df) * sqrt(pred$se.fit^2)
+  pred$fit + qt(0.025, df = pred$df) * pred$se.fit,
+  pred$fit + qt(0.975, df = pred$df) * pred$se.fit
 ), sep = "\n")
 ```
 
@@ -576,7 +640,7 @@ cat(sprintf(
 :::{.callout-important}
 ## Not quite right
 
-The above calculations are for **confidence intervals**, not prediction intervals! [Did you notice? Probably not!]{.fragment .fade-in}
+The above calculations are for **confidence intervals**, not prediction intervals! [Did you notice?]{.fragment .fade-in}
 :::
 :::
 :::
@@ -915,10 +979,14 @@ Suitable semantic data-types include:
 
 ### Mixed-type *semantic* vectors
 
-::: {.fragment .fade-out fragment-index="1"}
-`{vecvec}` is perhaps only useful for mixed-type vectors that share **common semantics**.
+![](media/distributional.svg){.sticker-float-midright .fragment fragment-index="1"}
+
+::: {.fragment .fade-out fragment-index="2"}
+`{vecvec}` is useful for mixed-type  
+vectors with **common semantics**.
 :::
 
+::: {.fragment fragment-index="1"}
 ::: {.callout-tip icon="false"}
 
 ## 📊 Mixed distributions
@@ -935,8 +1003,9 @@ dist <- c(
 dist
 ```
 :::
+:::
 
-::: {.fragment .fade-up fragment-index="1"}
+::: {.fragment .fade-up fragment-index="2"}
 ::: {.callout-tip icon="false"}
 ## 🧮 Vectorised statistics across distributions
 
